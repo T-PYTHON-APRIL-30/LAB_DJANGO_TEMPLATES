@@ -5,6 +5,10 @@ import random
 # Create your views here.
 
 
+
+
+
+
 def today_time (request:HttpRequest):
     context = {"date": date.today}
     return render (request, 'main_app/today.html', context)
