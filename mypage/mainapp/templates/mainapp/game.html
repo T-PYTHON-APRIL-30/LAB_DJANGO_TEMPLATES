@@ -1,0 +1,10 @@
+{%extend 'base.html'%}
+
+{%block contect%}
+<h1>My Favorite Games</h1>
+<u1>
+ {%for games in game%}
+ <li>{{game}}</li>
+ {%endfor%}
+</u1>
+{%endblock%}
