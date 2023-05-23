@@ -1,18 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpRequest
+from django.http import HttpRequest,HttpResponse
 from datetime import date
 import random
 
 
 # Create your views here.
+def homePage(request:HttpRequest):
+    return HttpResponse('Home Page')
 
 def todayPage(request:HttpRequest):
     context = {'today': date.today()}
     return render(request,'mainApp/today.html',context)
 
 def randomPassword(request:HttpRequest):
-    passwords = ['akjdjdj33-','jdjjsj553','jhdhdsh77','hhdhdh33','jjdjs66262']
-    context = {'Password':random.choice(passwords)}
+    characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_-'
+    password = [random.choice(characters) for i in range (12)]
+                
+    context = {'Password':password}
     return render(request,'mainApp/password.html',context)
 
 def favGames(request:HttpRequest):
